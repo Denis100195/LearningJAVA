@@ -18,7 +18,6 @@ public class ReplaceElements {
                 }
             }
             arr[i] = max;
-
         }
         return arr;
     }
