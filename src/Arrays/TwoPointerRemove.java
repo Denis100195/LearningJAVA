@@ -27,4 +27,27 @@ public class TwoPointerRemove {
         // This turns out to be the correct length value.
         return writePointer;
     }
+/*Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.*/
+
+    public void moveZeroes(int[] nums){
+        int writePointer = 0;
+        for (int readPointer = 0; readPointer < nums.length; readPointer++) {
+            // If the current element we're reading is zero
+            if (nums[readPointer] != 0) {
+                // Copy it into the next position at the front, tracked by writePointer.
+                nums[writePointer] = nums[readPointer];
+                // And we need to now increment writePointer, because the next element
+                // should be written one space over.
+                writePointer++;
+            }
+        }
+        while (writePointer < nums.length){
+            nums[writePointer] = 0;
+            writePointer++;
+        }
+
+
+    }
 }
