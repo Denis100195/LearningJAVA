@@ -47,7 +47,30 @@ Note that you must do this in-place without making a copy of the array.*/
             nums[writePointer] = 0;
             writePointer++;
         }
+    }
+/*Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.
 
+Return any array that satisfies this condition.
+Example:
+Input: nums = [3,1,2,4]
+Output: [2,4,3,1]
+Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.*/
 
+    public int[] sortArrayByParity(int[] nums) {
+        int[] result = new int[nums.length];
+        int writePointer = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] % 2 == 0){
+                result[writePointer] = nums[i];
+                writePointer++;
+            }
+        }
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] % 2 != 0){
+                result[writePointer] = nums[i];
+                writePointer++;
+            }
+        }
+        return result;
     }
 }
