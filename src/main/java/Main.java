@@ -1,6 +1,4 @@
 import Arrays.EcpectedNumbers;
-import Arrays.ReplaceElements;
-import Arrays.TwoPointerRemove;
 
 public class Main {
     public static void main(String[] args) {
