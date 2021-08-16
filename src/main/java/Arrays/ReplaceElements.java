@@ -3,6 +3,8 @@ package Arrays;
 
 After doing so, return the array.*/
 
+import java.util.Arrays;
+
 public class ReplaceElements {
     public int[] replaceElements(int[] arr) {
 
@@ -20,5 +22,15 @@ public class ReplaceElements {
             arr[i] = max;
         }
         return arr;
+    }
+
+    /*Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.*/
+    public int[] sortedSquares(int[] nums) {
+        int[] sqNums = new int[nums.length];
+        for(int i = 0; i < nums.length; i++){
+            sqNums[i] = nums[i]*nums[i];
+        }
+        Arrays.sort(sqNums);
+        return sqNums;
     }
 }
