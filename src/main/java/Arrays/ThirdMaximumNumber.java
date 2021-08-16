@@ -2,22 +2,30 @@ package Arrays;
 /*Given integer array nums, return the third maximum number in this array. If the third maximum does not exist, return the maximum number.*/
 public class ThirdMaximumNumber {
     public int thirdMax(int[] nums) {
-        int fstMax = -2147483648;
-        int scdMax = -2147483648;
-        int trdMax = -2147483648;
-        for (int i = 0; i < nums.length; i++){
-            if (nums[i] > fstMax){
+        Integer fstMax = null;
+        Integer scdMax = null;
+        Integer trdMax = null;
+        for (Integer num : nums){
+            if(num.equals(fstMax) || num.equals(scdMax) || num.equals(trdMax)){
+                continue;
+            }
+            if (fstMax == null || num > fstMax){
                 trdMax = scdMax;
                 scdMax = fstMax;
-                fstMax = nums[i];
+                fstMax = num;
             }
-            if (nums[i] < fstMax && nums[i] > scdMax){
+            else if (scdMax == null || num > scdMax){
                 trdMax = scdMax;
-                scdMax = nums[i];
+                scdMax = num;
             }
-            if (nums[i] < fstMax && nums[i] < scdMax && nums[i] > trdMax) trdMax = nums[i];
+            else if (trdMax == null || num > trdMax) {
+                trdMax = num;
+            }
         }
-        //if () return fstMax;
+
+        if (trdMax == null) {
+            return fstMax;
+        }
 
         return trdMax;
     }

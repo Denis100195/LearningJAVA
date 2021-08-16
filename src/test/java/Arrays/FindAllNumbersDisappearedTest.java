@@ -12,7 +12,7 @@ public class FindAllNumbersDisappearedTest {
 
     @Test
     public void findDisappearedNumbers() {
-        int[] nums = {4,3,2,7,8,2,3,1};
+        int[] nums = {1, 1};
         List<Integer> list = new ArrayList<>();
         list.add(5);
         list.add(6);

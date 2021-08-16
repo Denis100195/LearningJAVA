@@ -1,9 +1,6 @@
 package Arrays;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class FindAllNumbersDisappeared {
     /*Given an array nums of n integers where nums[i] is in the range [1, n],
@@ -17,11 +14,14 @@ Input: nums = [1,1]
 Output: [2]*/
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> fullList = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++){
-            fullList.add(i + 1);
+        HashSet<Integer> set = new HashSet<Integer>();
+        for (int i : nums){
+            set.add(i);
         }
-        for (int i = 0; i < nums.length; i++){
-            fullList.remove(Integer.valueOf(nums[i]));
+        for (int i = 1; i <= nums.length; i++){
+            if (!set.contains(i)){
+                fullList.add(i);
+            }
         }
 
         return fullList;
