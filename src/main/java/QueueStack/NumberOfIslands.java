@@ -35,6 +35,7 @@ public class NumberOfIslands {
             }
         }
         return count;
+
     }
     //BFS method
     public void markNeighbour(char[][] grid, int i, int j){
