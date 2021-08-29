@@ -22,7 +22,7 @@ package QueueStack;
  Output: 3*/
 
 public class NumberOfIslands {
-    public int numIslands(char[][] grid) {
+    public int numIslandsBFS(char[][] grid) {
         int count = 0;
 
         if (grid.length == 0) return 0;
@@ -46,7 +46,46 @@ public class NumberOfIslands {
         markNeighbour(grid, i - 1, j);
         markNeighbour(grid, i, j + 1);
         markNeighbour(grid, i, j - 1);
-
     }
+
+    //DFS method
+    public void dfs(char[][] grid, int i, int j, boolean[][] visited){
+        visited[i][j] = true;
+        int[] x = {1,0,0,-1};
+        int[] y = {0,1,-1,0};
+        for (int k = 0; k < 4; k++){
+
+            int tempi = i + x[k];
+            int tempj = j + y[k];
+            if(tempi >= 0 && tempj >= 0 && tempi < grid.length && tempj < grid[0].length){
+
+                if(grid[tempi][tempj]=='1' && !visited[tempi][tempj]) {
+                    dfs(grid, tempi, tempj, visited);
+                }
+            }
+        }
+    }
+
+    public int numIslandsDFS(char[][] grid) {
+        int count = 0;
+        boolean [][]visited = new boolean[grid.length][grid[0].length];
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++) {
+                visited[i][j] = false;
+            }
+        }
+
+        for(int  i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == '1' && !visited[i][j]){
+                    dfs(grid, i, j, visited);
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
 }
 
