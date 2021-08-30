@@ -49,43 +49,28 @@ public class NumberOfIslands {
     }
 
     //DFS method
-    public void dfs(char[][] grid, int i, int j, boolean[][] visited){
-        visited[i][j] = true;
-        int[] x = {1,0,0,-1};
-        int[] y = {0,1,-1,0};
-        for (int k = 0; k < 4; k++){
-
-            int tempi = i + x[k];
-            int tempj = j + y[k];
-            if(tempi >= 0 && tempj >= 0 && tempi < grid.length && tempj < grid[0].length){
-
-                if(grid[tempi][tempj]=='1' && !visited[tempi][tempj]) {
-                    dfs(grid, tempi, tempj, visited);
-                }
-            }
+    public void dfsMark(char[][] grid, int row, int col){
+        //check necessary conditions
+        if (row < 0 || col < 0 || row > grid.length - 1 || col > grid[0].length - 1){
+            return;
         }
+        if (grid[row][col] == '0'){
+            return;
+        }
+        //process cell
+        grid[row][col] = '0';
+
+        //call dfs as needed
+        dfsMark(grid, row, col + 1);
+        dfsMark(grid, row, col - 1);
+        dfsMark(grid, row + 1, col);
+        dfsMark(grid, row - 1, col);
+
+
+
     }
 
-    public int numIslandsDFS(char[][] grid) {
-        int count = 0;
-        boolean [][]visited = new boolean[grid.length][grid[0].length];
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++) {
-                visited[i][j] = false;
-            }
-        }
 
-        for(int  i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++){
-                if(grid[i][j] == '1' && !visited[i][j]){
-                    dfs(grid, i, j, visited);
-                    count++;
-                }
-            }
-        }
-
-        return count;
-    }
 
 }
 
