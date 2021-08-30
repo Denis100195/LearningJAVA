@@ -15,17 +15,13 @@ public class CloneGraph {
         if (node == null) {
             return null;
         }
-
         Map<Integer, Node> map = new HashMap<>();
         map.put(node.val, new Node(node.val));
-
         LinkedList<Node> queue = new LinkedList<>();
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.removeFirst();
-
             for (Node n : current.neighbors) {
                 if (!map.containsKey(n.val)) {
                     map.put(n.val, new Node(n.val));
