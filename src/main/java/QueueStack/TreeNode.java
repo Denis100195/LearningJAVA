@@ -1,6 +1,6 @@
 package QueueStack;
 
-public class TreeNode extends BinaryTree.TreeNode {
+public class TreeNode {
 
     int val;
     TreeNode left;
