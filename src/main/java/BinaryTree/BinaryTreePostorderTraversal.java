@@ -5,26 +5,33 @@ import java.util.List;
 import java.util.Stack;
 
 public class BinaryTreePostorderTraversal {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    //iterative method
+    public List<Integer> postorderTraversal1(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode current = root;
         while (current != null || !stack.isEmpty()){
-            result.add(current.val);
-
-            if (root.left != null) {
-                stack.push(root.left);
+            if (current != null){
+                stack.push(current);
+                result.add(0, current.val);
+                current = current.right;
+            }
+            else {
+                current = stack.pop();
+                current = current.left;
             }
         }
+        return result;
     }
+
     //Recursive method
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> vals = new ArrayList<>();
         if (root == null) {
             return vals;
         }
-        vals.addAll(postorderTraversal(root.left));
-        vals.addAll(postorderTraversal(root.right));
+        vals.addAll(postorderTraversal2(root.left));
+        vals.addAll(postorderTraversal2(root.right));
         vals.add(root.val);
         return vals;
     }
