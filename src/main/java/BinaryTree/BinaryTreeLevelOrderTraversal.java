@@ -32,10 +32,10 @@ public class BinaryTreeLevelOrderTraversal {
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
         List<List<Integer>> ans = new ArrayList<>();
-        while(queue.size()>0){
+        while(queue.size() > 0){
             int qs = queue.size();
             List<Integer> list = new ArrayList<>();
-            for(int i=1;i<=qs;i++) {
+            for(int i = 1; i <= qs; i++) {
                 TreeNode front  = queue.remove();
                 list.add(front.val); //list add
                 //add children to queue
