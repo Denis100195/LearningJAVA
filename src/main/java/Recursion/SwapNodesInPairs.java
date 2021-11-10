@@ -2,14 +2,21 @@ package Recursion;
 
 public class SwapNodesInPairs {
     public ListNode swapPairs(ListNode head) {
-        if (head == null)
-            return null;
-        while (head.next != null){
-            head = head.next;
-            head.next = head;
-        }
-        return head;
+        ListNode root = new ListNode();
+        root = head;
+        recSwap(root);
+        return root;
+    }
 
+    public void recSwap(ListNode root){
 
+        if(root==null || root.next==null)
+            return;
+
+        int temp = root.next.val;
+        root.next.val = root.val;
+        root.val = temp;
+
+        recSwap(root.next.next);
     }
 }
