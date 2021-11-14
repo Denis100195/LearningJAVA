@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PascalsTriangle {
+    //Iterative method
     public List<Integer> getRow(int rowIndex) {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < rowIndex + 1; ++i){
