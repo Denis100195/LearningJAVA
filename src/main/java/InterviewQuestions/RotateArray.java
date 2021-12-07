@@ -10,16 +10,16 @@ public class RotateArray {
     public void rotate(int[] nums, int k) {
         int[] res = new int[nums.length];
         int s = 0;
+        int step = k;
 
-        while (k > 0){
-            res[s] = nums[nums.length - k];
+        while (step > 0){
+            res[s] = nums[nums.length - step];
             s++;
-            k--;
+            step--;
         }
 
         for (int i = k; i < res.length; i++){
             res[i] = nums[i-k];
-
         }
     }
 }
