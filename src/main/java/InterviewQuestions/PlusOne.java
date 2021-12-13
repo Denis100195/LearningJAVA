@@ -31,14 +31,12 @@ public class PlusOne {
                     return newDigits;
                 }else {
                     digits[i] = 0;
-                    digits[i-1]++;
                 }
             }
             else {
                 digits[i]++;
                 break;
             }
-
         }
         return digits;
     }
