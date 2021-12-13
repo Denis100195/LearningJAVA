@@ -1,6 +1,7 @@
 package InterviewQuestions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*Given two integer arrays nums1 and nums2, return an array of their
@@ -14,14 +15,24 @@ Explanation: [9,4] is also accepted.
 */
 public class IntersectionTwoArrays {
     public int[] intersect(int[] nums1, int[] nums2) {
-        int len = Math.min(nums1.length, nums2.length);
-        List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i < len; i++){
-
-            if (nums1[i] == nums2[i]){
-                list.add(nums1[i]);
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        List<Integer> l=new ArrayList<>();
+        int i=0, j=0;
+        while(i < nums1.length && j < nums2.length){
+            if(nums1[i] == nums2[j]){
+                l.add(nums1[i]);
+                i++;j++;
             }
+            else
+                if(nums1[i]<nums2[j])
+                    i++;
+            else
+                j++;
         }
+        int res[]=new int[l.size()];
+        for(i=0;i<l.size();i++) res[i]=l.get(i);
+        return res;
     }
 }
