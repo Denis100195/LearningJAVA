@@ -13,6 +13,20 @@ You have to rotate the image in-place, which means you have to modify
 * */
 public class RotateImage {
     public void rotate(int[][] matrix) {
-
+        int n = matrix.length;
+        for(int i=0 ; i<n ; i++){
+            for(int j=0 ; j<n/2 ; j++){
+                int tmp = matrix[i][j];
+                matrix[i][j]= matrix[i][n-j-1];
+                matrix[i][n-j-1] = tmp;
+            }
+        }
+        for(int i =0 ; i<n ;i++){
+            for(int j=0 ; j<n-i-1 ; j++){
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[n-j-1][n-i-1];
+                matrix[n-j-1][n-i-1] = tmp;
+            }
+        }
     }
 }
