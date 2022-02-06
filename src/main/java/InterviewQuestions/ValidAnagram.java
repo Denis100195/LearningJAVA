@@ -12,10 +12,8 @@ public class ValidAnagram {
 
         Arrays.sort(arr1);
         Arrays.sort(arr2);
-        if (arr1.equals(arr2)){
-            return true;
-        }
-        else return false;
+        return Arrays.equals(arr1, arr2);
+
     }
 
 }

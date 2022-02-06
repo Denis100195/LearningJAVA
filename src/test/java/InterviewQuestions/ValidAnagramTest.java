@@ -6,11 +6,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ValidAnagramTest {
-    String s = "anagram";
-    String t = "nagaram";
+    String s = "rat";
+    String t = "car";
+    ValidAnagram va = new ValidAnagram();
 
     @Test
     public void isAnagram() {
-        Assert.assertTrue();
+        Assert.assertTrue(va.isAnagram(s, t));
     }
 }
